@@ -9,11 +9,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
+import android.widget.ImageView
 import android.widget.LinearLayout
 import android.widget.SearchView
+import androidx.appcompat.app.AlertDialog
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.internal.ViewUtils.showKeyboard
 import com.keygeldi.kisileruygulamas1.R
@@ -61,11 +64,29 @@ class AnasayfaFragment : Fragment() {
                 return true
             }
         })
+
+        val quitButton: ImageView =binding.root.findViewById(R.id.user_quit)
+        quitButton.setOnClickListener {
+            showExitConfirmationDialog()
+        }
         return binding.root
     }
 
+    private fun showExitConfirmationDialog() {
+        val dialogBuilder = AlertDialog.Builder(requireContext())
+        dialogBuilder.setTitle("Uyarı")
+        dialogBuilder.setMessage("Hesaptan çıkmak istiyor musunuz?")
+        dialogBuilder.setNegativeButton("Evet") { _, _ ->
+            findNavController().navigate(R.id.action_anasayfaFragment_to_loginFragment)
+        }
+        dialogBuilder.setPositiveButton("Hayır") { dialog, _ ->
+            dialog.dismiss() // Diyaloğu kapat
+        }
 
-
+        val alertDialog = dialogBuilder.create()
+        alertDialog.show()
+    }
+//
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val tempViewModel: AnasayfaViewModel by viewModels()

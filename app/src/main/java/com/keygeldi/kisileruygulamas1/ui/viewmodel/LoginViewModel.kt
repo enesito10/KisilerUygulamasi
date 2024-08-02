@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.keygeldi.kisileruygulamas1.LoginState
 import com.keygeldi.kisileruygulamas1.room.UserDao
 import kotlinx.coroutines.launch
 
@@ -28,6 +29,7 @@ class LoginViewModel(private val userDao: UserDao) : ViewModel() {
                 val user = userDao.getUserByCredentials(username, password)
                 if (user != null) {
                     _loginResult.value = true
+                    LoginState.curentuserid = user.username
                 } else {
                     _loginResult.value = false
                     _errorMessage.value = "Kullanıcı adı veya şifre yanlış"

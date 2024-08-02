@@ -16,12 +16,19 @@
         <action
             android:id="@+id/kisiKayitGecis"
             app:destination="@id/kisiKayitFragment" />
+        <action
+            android:id="@+id/action_anasayfaFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/kisiKayitFragment"
         android:name="com.keygeldi.kisileruygulamas1.ui.fragment.KisiKayitFragment"
         android:label="fragment_kisi_kayit"
-        tools:layout="@layout/fragment_kisi_kayit" />
+        tools:layout="@layout/fragment_kisi_kayit" >
+        <action
+            android:id="@+id/action_kisiKayitFragment_to_anasayfaFragment"
+            app:destination="@id/anasayfaFragment" />
+    </fragment>
     <fragment
         android:id="@+id/kisiDetayFragment"
         android:name="com.keygeldi.kisileruygulamas1.ui.fragment.KisiDetayFragment"
