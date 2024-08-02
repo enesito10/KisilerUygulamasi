@@ -3,4 +3,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="purple">#8692F7</color>
+    <!-- res/values/colors.xml -->
+        <color name="your_primary_color">#FF5722</color>
+        <color name="your_status_bar_color">#D32F2F</color>
+        <color name="your_accent_color">#FFC107</color>
+
+
 </resources>

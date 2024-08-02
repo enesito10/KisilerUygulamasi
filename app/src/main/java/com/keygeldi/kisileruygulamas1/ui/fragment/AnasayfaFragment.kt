@@ -61,14 +61,6 @@ class AnasayfaFragment : Fragment() {
                 return true
             }
         })
-
-        /*binding.buttonDetay.setOnClickListener {
-            val kisi = Kisiler(1, "Ahmet", "1112")
-            val gecis = AnasayfaFragmentDirections.kisiDetayGecis(kisi)
-            Navigation.findNavController(it).navigate(gecis)
-
-        }  sonradan kullanıcaz tekrar. */
-
         return binding.root
     }
 
